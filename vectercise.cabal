@@ -1,0 +1,105 @@
+cabal-version:      2.4
+name:               vectercise
+version:            0.1.0.0
+synopsis:           Implementing list functions on length-indexed vectors.
+description:        Type-level programming in Haskell.
+license:            MIT
+author:             mandober
+maintainer:         ilicivan@zoho.com
+copyright:          2021 Ivan
+category:           Exercises
+extra-source-files: README.md
+
+-- ----------------------------------------------------------------------------
+common mydeps
+-- ----------------------------------------------------------------------------
+  default-language: Haskell2010
+  ghc-options:
+    -pgmL markdown-unlit -optL hs+\!ignore -optL haskell+\!ignore
+    -Wall
+    -Wno-unused-imports
+    -Wno-unused-top-binds
+    -Wno-unticked-promoted-constructors
+    -Wno-type-defaults
+
+  -- other-modules:
+  other-extensions:
+      BinaryLiterals
+    , BlockArguments
+    , ConstraintKinds
+    , ConstrainedClassMethods
+    , DataKinds
+    , DeriveDataTypeable
+    , DeriveFoldable
+    , DeriveFunctor
+    , DeriveGeneric
+    , DeriveLift
+    , DeriveTraversable
+    , DerivingStrategies
+    , EmptyCase
+    , EmptyDataDecls
+    , EmptyDataDeriving
+    , ExistentialQuantification
+    , ExplicitForAll
+    , FlexibleContexts
+    , FlexibleInstances
+    , FunctionalDependencies
+    , GADTs
+    , GeneralizedNewtypeDeriving
+    , HexFloatLiterals
+    , ImportQualifiedPost
+    , InstanceSigs
+    , KindSignatures
+    , LiberalTypeSynonyms
+    , MultiParamTypeClasses
+    , NegativeLiterals
+    , NumericUnderscores
+    , PartialTypeSignatures
+    , PolyKinds
+    , RankNTypes
+    , RoleAnnotations
+    , ScopedTypeVariables
+    , StandaloneDeriving
+    , StandaloneKindSignatures
+    , StarIsType
+    , TupleSections
+    , TypeApplications
+    , TypeFamilies
+    , TypeOperators
+    , TypeSynonymInstances
+    , UnicodeSyntax
+
+
+  build-depends:
+    base ^>=4.15.0.0
+    -- , vectercise
+    , constraints
+    , text
+    , containers
+    , directory
+    , QuickCheck
+    -- , data-default
+    -- , ghc-prim
+    -- , pretty
+    -- , pretty-show
+    -- , pretty-simple
+    -- , prettyprinter
+    -- , random
+    -- , singletons
+    -- , transformers
+    -- , unordered-containers
+    -- , vector
+
+
+executable vectercise
+  import:           mydeps
+  main-is:          Main.hs
+  hs-source-dirs:   src
+
+
+-- test-suite vectercise-test
+--   import:           mydeps
+--   type:             exitcode-stdio-1.0
+--   hs-source-dirs:   test
+--   main-is:          MyLibTest.hs
+--   build-depends:    base ^>=4.15.0.0
